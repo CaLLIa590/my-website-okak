@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+    <style>
+        .gallery {
+            text-align: center;
+        }
+        img {
+            max-width: 600px;
+            max-height: 400px;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <img id="currentImage" src="images/image1.jpg" alt="Gallery Image">
+        <div>
+            <button onclick="prevImage()">Назад</button>
+            <button onclick="nextImage()">Вперед</button>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            images/image1.jpg,
+            images/image2.jpg,
+            images/image3.jpg
+        ];
+        let currentIndex = 0;
+
+        function updateImage() {
+            document.getElementById(currentImage).src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+    </script>
+</body>
+</html>
